@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>search</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-searchbar placeholder= "Search Movies" color="medium" autocomplete="on" (ionInput)="searchMovies($event)"></ion-searchbar>
+
+    <ion-virtual-scroll [items]="results">
+      <ion-item *virtualItem='let movie'>
+        <ion-avatar item-start>
+          <img src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}">
+        </ion-avatar>
+        <ion-label text-wrap>
+            <ion-button fill="clear" (click)="launchMovieDetailsPage(movie.id)">
+              <h2>{{movie.original_title}}</h2>
+            </ion-button>
+            <br>
+          <p class="release">Release Date: {{movie.release_date}}</p>   
+        </ion-label>
+      </ion-item>
+    </ion-virtual-scroll>
+</ion-content>
