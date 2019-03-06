@@ -14,20 +14,19 @@ import {
   MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,
   MatSortModule, MatTableModule, MatIconModule,
   MatButtonModule, MatCardModule, MatFormFieldModule } from "@angular/material";
-import { DragDropModule } from '@angular/cdk/drag-drop';
-import { ScrollingModule } from '@angular/cdk/scrolling';
+
 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalPageModule } from './modal/modal.module';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
-    BrowserAnimationsModule, DragDropModule, ScrollingModule,
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule,
     MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,
     MatSortModule, MatTableModule, MatIconModule, MatButtonModule,
-    MatCardModule, MatFormFieldModule, FormsModule, HttpClientModule],
+    MatCardModule, MatFormFieldModule, FormsModule, HttpClientModule, ModalPageModule],
   providers: [
     StatusBar,
     SplashScreen,

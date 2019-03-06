@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Movie Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+        <img src = "http://image.tmdb.org/t/p/w500{{movie.poster_path}}">
+      </ion-col>
+  
+      <ion-col col-6>
+        <h4>Title: </h4><p>{{movie.original_title}}</p>
+        <h4>Release Date: </h4><p>{{movie.release_date}}</p>
+        <h4>Rating: </h4><p>{{movie.vote_average}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <h4>Overview</h4>
+        <p>{{movie.overview}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+
+<ion-footer>
+  <ion-buttons end>
+    <button clear ion-button (click)="closeModal()">
+      <ion-icon name="md-close-circle"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-footer>

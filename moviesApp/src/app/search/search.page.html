@@ -13,7 +13,7 @@
           <img src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}">
         </ion-avatar>
         <ion-label text-wrap>
-            <ion-button fill="clear" (click)="launchMovieDetailsPage(movie.id)">
+            <ion-button fill="clear" (click)="movieDetails(movie.id)">
               <h2>{{movie.original_title}}</h2>
             </ion-button>
             <br>

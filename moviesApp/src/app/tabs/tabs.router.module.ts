@@ -24,14 +24,6 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'add',
-        children: [
-          {
-            path: '', loadChildren: '../add/add.module#AddPageModule'
-          }
-        ]
-      },
-      {
         path: 'edit',
         children: [
           {

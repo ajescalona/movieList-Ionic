@@ -36,6 +36,16 @@ export class ApiService {
       tap(_ => console.log(`search movies`))
     );
   }
+
+  getMovie(id: any){
+
+    const url = 'https://api.themoviedb.org/3/movie/'+id+'?api_key='+this.apiKey+'&language=en-US'
+
+    return this.http.get<any>(url).pipe(
+      tap(_ => console.log(`movies details`))
+    );
+
+  }
   
 /*   addProduct (product): Observable<Product> {
     return this.http.post<Product>(apiUrl, product, httpOptions).pipe(

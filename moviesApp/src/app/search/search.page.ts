@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { ModalPage } from '../modal/modal.page';
 
 @Component({
   selector: 'app-search',
@@ -9,9 +11,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SearchPage implements OnInit {
 
-  constructor(public api: ApiService, public router: Router, public route: ActivatedRoute) { }
+  constructor(public api: ApiService, public router: Router, public route: ActivatedRoute, private modalCtrl: ModalController) { }
 
   ngOnInit() {
+    
   }
 
   results:any[]=[];
@@ -25,6 +28,16 @@ export class SearchPage implements OnInit {
       this.results = data.results;
     });
 
+  }
+
+  async movieDetails(id: any){
+    const modal = await this.modalCtrl.create({
+      component: ModalPage,
+      componentProps: {
+        movie_id: id
+      }
+    });
+    return await modal.present();
   }
 
 }

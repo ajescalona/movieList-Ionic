@@ -7,7 +7,6 @@ import { TabsPageRoutingModule } from './tabs.router.module';
 
 import { TabsPage } from './tabs.page';
 
-import { AddPageModule } from '../add/add.module';
 import { EditPageModule } from '../edit/edit.module';
 import { HomePageModule } from '../home/home.module';
 import { SearchPageModule } from '../search/search.module';
@@ -19,7 +18,6 @@ import { SearchPageModule } from '../search/search.module';
     FormsModule,
     TabsPageRoutingModule,
     HomePageModule,
-    AddPageModule,
     EditPageModule,
     SearchPageModule
   ],
