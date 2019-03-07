@@ -1,1 +1,18 @@
+.home{
+    border-right: 1px solid grey;
+    border-bottom: 2px solid red;
+}
 
+.search{
+    border-right: 1px solid grey;
+    border-bottom: 2px solid blue;
+}
+
+ion-tab-button{
+    --color: grey;
+    --color-selected: black;
+}
+
+.tab-selected{
+    border-bottom: 5px solid;
+  }
