@@ -11,23 +11,23 @@ import { ModalPage } from '../modal/modal.page';
 })
 export class SearchPage implements OnInit {
 
+  results:any[]=[];
+
   constructor(public api: ApiService, public router: Router, public route: ActivatedRoute, private modalCtrl: ModalController) { }
 
   ngOnInit() {
-    
   }
-
-  results:any[]=[];
 
   searchMovies(ev: any) {
     let val = ev.target.value;
 
+    if(this.results != [])
+    {
       this.api.searchMovies(val).subscribe(data=>{
-
-      console.log(data.results);
-      this.results = data.results;
-    });
-
+        this.results = data.results;
+      });
+    }   
+    this.results = [];
   }
 
   async movieDetails(id: any){

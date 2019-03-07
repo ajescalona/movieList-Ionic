@@ -11,15 +11,15 @@ import { ApiService } from '../api.service';
 
 export class HomePage implements OnInit {
 
+  movies:any[]=[];
+
   constructor(public api: ApiService, public loadingController: LoadingController,
     public router: Router, public route: ActivatedRoute) { }
   
   ngOnInit() {
     this.getPopularMovies();
   }
-
-  movies:any[]=[];
-
+  
   async getPopularMovies() {
     const loading = await this.loadingController.create({
       message: 'Loading...',
@@ -29,11 +29,11 @@ export class HomePage implements OnInit {
     await this.api.getPopularMovie()
       .subscribe(res => {
         this.movies = res.results;
-        console.log(this.movies);
         loading.dismiss();
       }, err => {
         console.log(err);
         loading.dismiss();
       });
+    
   }
 }
