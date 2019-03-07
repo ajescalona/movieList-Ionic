@@ -12,8 +12,9 @@ import { ModalPage } from '../modal/modal.page';
 })
 
 export class HomePage implements OnInit {
-
+  results:any[]=[];
   movies:any[]=[];
+  input:string;
 
   constructor(public api: ApiService, public loadingController: LoadingController,
     public router: Router, public route: ActivatedRoute, private modalCtrl: ModalController) { }
@@ -49,4 +50,17 @@ export class HomePage implements OnInit {
     return await modal.present();
   }
   
+  searchMovies(ev: any) {
+    let val = ev.target.value;
+
+    if(val != [])
+    {
+      this.api.searchMovies(val).subscribe(data=>{
+        this.results = data.results;
+      });
+    }
+    this.results = [];
+    console.log(ev.target.value);
+    this.input = ev.target.value;
+  }
 }
