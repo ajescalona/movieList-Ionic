@@ -5,7 +5,19 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-grid>
+    <ion-card>
+      <img src = "http://image.tmdb.org/t/p/w780{{movie.backdrop_path}}">
+        <ion-card-header>
+          <ion-card-title>{{movie.original_title}}</ion-card-title>
+          <ion-card-subtitle>Release Date: {{movie.release_date}}</ion-card-subtitle>
+          <ion-card-subtitle>Rating: {{movie.vote_average}}</ion-card-subtitle>
+        </ion-card-header>
+      
+        <ion-card-content>
+            {{movie.overview}}
+        </ion-card-content>
+      </ion-card>
+<!--   <ion-grid>
     <ion-row>
       <ion-col col-6>
         <img src = "http://image.tmdb.org/t/p/w500{{movie.poster_path}}">
@@ -23,7 +35,7 @@
         <p>{{movie.overview}}</p>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid> -->
 </ion-content>
 
 
