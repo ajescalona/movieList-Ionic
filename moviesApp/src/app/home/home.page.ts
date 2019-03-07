@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../api.service';
+import { ModalController } from '@ionic/angular';
+import { ModalPage } from '../modal/modal.page';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +16,7 @@ export class HomePage implements OnInit {
   movies:any[]=[];
 
   constructor(public api: ApiService, public loadingController: LoadingController,
-    public router: Router, public route: ActivatedRoute) { }
+    public router: Router, public route: ActivatedRoute, private modalCtrl: ModalController) { }
   
   ngOnInit() {
     this.getPopularMovies();
@@ -36,4 +38,15 @@ export class HomePage implements OnInit {
       });
     
   }
+
+  async movieDetails(id: any){
+    const modal = await this.modalCtrl.create({
+      component: ModalPage,
+      componentProps: {
+        movie_id: id
+      }
+    });
+    return await modal.present();
+  }
+  
 }
