@@ -1,49 +1,44 @@
 <ion-header>
-
   <ion-toolbar>
-  <ion-searchbar placeholder= "Search Movies" color="medium" autocomplete="on" (ionInput)="searchMovies($event)"></ion-searchbar>
-</ion-toolbar>
-
+    <ion-buttons slot="secondary">
+      <ion-button>
+        <ion-icon name="contact"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button color="secondary">
+        <ion-icon name="options"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-searchbar placeholder= "Search Movies" color="light" autocomplete="on" (ionInput)="searchMovies($event)"></ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content>
-      
-   <ion-grid >
-
+<ion-content> 
+  <ion-grid >
     <ion-row *ngIf="input !== ''">
-        <ion-virtual-scroll [items]="results" >
-            <ion-item *virtualItem='let movie'>
-              <ion-avatar item-start>
-                <img src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}">
-              </ion-avatar>
-              <ion-label text-wrap>
-                  <ion-button fill="clear" (click)="movieDetails(movie.id)">
-                    <h2>{{movie.original_title}}</h2>
-                  </ion-button>
-                  <br>
-                <p class="release">Release Date: {{movie.release_date}}</p>   
-              </ion-label>
-            </ion-item>
-          </ion-virtual-scroll>
+      <ion-virtual-scroll [items]="results" >
+        <ion-item *virtualItem='let movie'>
+          <ion-avatar item-start>
+            <img src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}">
+          </ion-avatar>
+          <ion-label text-wrap>
+              <ion-button fill="clear" (click)="movieDetails(movie.id)">
+                <h2>{{movie.original_title}}</h2>
+              </ion-button>
+              <br>
+            <p class="release">Release Date: {{movie.release_date}}</p>   
+          </ion-label>
+        </ion-item>
+      </ion-virtual-scroll>
     </ion-row>
-
     <ion-row *ngIf="results == ''">
       <ion-col size="6" *ngFor="let m of movies">
-
         <ion-card class="home-card">
             <img src="http://image.tmdb.org/t/p/w500{{m.poster_path}}" (click)="movieDetails(m.id)"/>
         </ion-card>
-
       </ion-col>
     </ion-row>
-
   </ion-grid> 
-
-  
-
-  
-
-  
-
 </ion-content>
 
