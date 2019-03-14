@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, NavController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../api.service';
 import { ModalController } from '@ionic/angular';
@@ -17,7 +17,7 @@ export class HomePage implements OnInit {
   input:string;
 
   constructor(public api: ApiService, public loadingController: LoadingController,
-    public router: Router, public route: ActivatedRoute, private modalCtrl: ModalController) { }
+    public router: Router, public route: ActivatedRoute, private modalCtrl: ModalController, private nav: NavController) { }
   
   ngOnInit() {
     this.getPopularMovies();
@@ -37,7 +37,6 @@ export class HomePage implements OnInit {
         console.log(err);
         loading.dismiss();
       });
-    
   }
 
   async movieDetails(id: any){
@@ -62,5 +61,9 @@ export class HomePage implements OnInit {
     this.results = [];
     console.log(ev.target.value);
     this.input = ev.target.value;
+  }
+
+  goToFilter(){
+    this.nav.navigateForward('/filter');
   }
 }

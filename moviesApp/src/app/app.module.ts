@@ -13,8 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,
   MatSortModule, MatTableModule, MatIconModule,
-  MatButtonModule, MatCardModule, MatFormFieldModule } from "@angular/material";
-
+  MatButtonModule, MatCardModule, MatFormFieldModule, MatExpansionModule } from "@angular/material";
 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -26,7 +25,7 @@ import { ModalPageModule } from './modal/modal.module';
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule,
     MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,
     MatSortModule, MatTableModule, MatIconModule, MatButtonModule,
-    MatCardModule, MatFormFieldModule, FormsModule, HttpClientModule, ModalPageModule],
+    MatCardModule, MatFormFieldModule, FormsModule, HttpClientModule, ModalPageModule, MatExpansionModule],
   providers: [
     StatusBar,
     SplashScreen,

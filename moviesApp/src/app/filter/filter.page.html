@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="arrow-back" defaultHref=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item tappable (click)="toggleSection('genero')" color="dark">
+    <ion-icon slot="end" name="add" *ngIf="!this.openGenres"></ion-icon>
+    <ion-icon slot="end" name="remove" *ngIf="this.openGenres"></ion-icon>
+    <ion-label class="text">
+      Genres
+    </ion-label>
+  </ion-item>
+  <ion-virtual-scroll [items]="genres" *ngIf="this.openGenres">
+    <ion-item *virtualItem='let genre' text-wrap>
+      <ion-label text-wrap>
+          <ion-button fill="clear" (click)="moviesByGenre(genre)">
+            <h2>{{genre.name}}</h2>
+          </ion-button> 
+      </ion-label>     
+    </ion-item>
+  </ion-virtual-scroll>
+
+  <ion-item tappable (click)="toggleSection('movies')" color="dark" class="accordion"> 
+      <ion-icon slot="end" name="add" *ngIf="!this.openMovies"></ion-icon>
+      <ion-icon slot="end" name="remove" *ngIf="this.openMovies"></ion-icon>
+      <ion-label class="text">
+        Popular Movies
+      </ion-label>
+    </ion-item>
+    <ion-virtual-scroll [items]="movies" *ngIf="this.openMovies">
+      <ion-item *virtualItem='let movie' text-wrap>
+        <ion-label text-wrap>
+            <ion-button fill="clear">
+              <h2>{{movie.original_title}}</h2>
+            </ion-button> 
+        </ion-label>     
+      </ion-item>
+    </ion-virtual-scroll>
+</ion-content>

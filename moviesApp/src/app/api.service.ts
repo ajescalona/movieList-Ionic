@@ -18,7 +18,6 @@ export class ApiService {
   constructor(private http: HttpClient) { } 
 
   getPopularMovie(): Observable<any> {
-
     const url = 'https://api.themoviedb.org/3/discover/movie?api_key='+this.apiKey+
     '&language=en-US&sort_by=popularity.desc'
     
@@ -28,7 +27,6 @@ export class ApiService {
   }
 
   searchMovies(searchStr:string){
-
     const url = 'https://api.themoviedb.org/3/search/movie?api_key='+this.apiKey+
     '&query='+searchStr+'&language=en-US&primary_release_date.gte=2017-04-15&primary_release_date.lte=2017-12-25&include_adult=false&include_video=false&page=1'
 
@@ -38,13 +36,20 @@ export class ApiService {
   }
 
   getMovie(id: any){
-
     const url = 'https://api.themoviedb.org/3/movie/'+id+'?api_key='+this.apiKey+'&language=en-US'
 
     return this.http.get<any>(url).pipe(
       tap(_ => console.log(`movies details`))
     );
+  }
 
+  getGenres(){
+    const url = 'https://api.themoviedb.org/3/genre/movie/list?api_key='+this.apiKey+
+    '&language=en-US'
+
+    return this.http.get<any>(url).pipe(
+      tap(_ => console.log(`get genres`))
+    );
   }
   
 /*   addProduct (product): Observable<Product> {
