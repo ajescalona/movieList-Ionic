@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{passedId.name}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button text="" icon="close" defaultHref="/filter"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+<!--   <ion-item *ngFor = "let movie of movies">
+    <ion-thumbnail slot="start">
+      <img src="http://image.tmdb.org/t/p/w780{{movie.poster_path}}">
+    </ion-thumbnail>
+    <ion-label class="label">
+      <h1>{{movie.original_title}}</h1>
+      <p>{{movie.overview}}</p>
+    </ion-label>
+  </ion-item> -->
+  <div *ngFor = "let movie of movies">
+    <ion-card class="home-card" >
+        <img src = "http://image.tmdb.org/t/p/w780{{movie.backdrop_path}}">
+    </ion-card>
+    <h2 class="text">{{movie.title}}</h2>
+  </div>
+
+</ion-content>

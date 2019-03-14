@@ -5,7 +5,8 @@ const routes: Routes = [
   { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' },
   { path: 'edit', loadChildren: './edit/edit.module#EditPageModule' },
   { path: 'search', loadChildren: './search/search.module#SearchPageModule' },
-  { path: 'filter', loadChildren: './filter/filter.module#FilterPageModule' }
+  { path: 'filter', loadChildren: './filter/filter.module#FilterPageModule' },
+  { path: 'movies-by-genre', loadChildren: './movies-by-genre/movies-by-genre.module#MoviesByGenrePageModule' }
 ];
 @NgModule({
   imports: [

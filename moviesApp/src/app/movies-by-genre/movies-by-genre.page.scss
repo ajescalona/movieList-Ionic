@@ -1,0 +1,20 @@
+.home-card {
+    padding: 0;
+    margin: 24px 0;
+    height: 100px;
+    filter: blur(0.6px);
+}
+
+.text{
+    position: relative;
+    color: #f4f5f8;
+    margin-top: -50px;
+    text-shadow: 2px 2px 2px darkblue;
+    font-size: 16px;
+    text-align: center;
+    top: -30px;
+}
+
+img{
+    filter: brightness(55%);
+}

@@ -6,26 +6,26 @@
 
 
 <ion-content padding>
-    <ion-card class="home-card">
-      <img src = "http://image.tmdb.org/t/p/w780{{movie.backdrop_path}}">
-        <ion-card-header>
-          <ion-card-title>{{movie.original_title}}</ion-card-title>
-        </ion-card-header>
-      
-        <ion-card-content>
-            {{movie.overview}}
-        </ion-card-content>
+  <ion-card class="home-card">
+    <img src = "http://image.tmdb.org/t/p/w780{{movie.backdrop_path}}">
+      <ion-card-header>
+        <ion-card-title>{{movie.original_title}}</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+          {{movie.overview}}
+      </ion-card-content>
 
-        <ion-item>
-          <ion-icon name="calendar" item-left></ion-icon>
-          Release Date: {{ movie.release_date | date }}
-        </ion-item>
-  
-        <ion-item>
-          <ion-icon name="star" item-left></ion-icon>
-          Rating: {{movie.vote_average}}
-        </ion-item>
-      </ion-card>
+      <ion-item>
+        <ion-icon name="calendar" item-left></ion-icon>
+        Release Date: {{ movie.release_date | date }}
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="star" item-left></ion-icon>
+        Rating: {{movie.vote_average}}
+      </ion-item>
+  </ion-card>
    
 </ion-content>
 

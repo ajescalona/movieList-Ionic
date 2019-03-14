@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { LoadingController } from '@ionic/angular';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-filter',
@@ -15,7 +16,7 @@ export class FilterPage implements OnInit {
   openGenres: boolean = false;
   openMovies: boolean = false;
 
-  constructor(private api: ApiService, private loadingController: LoadingController) { }
+  constructor(private api: ApiService, private loadingController: LoadingController, private router: Router) { }
 
   ngOnInit() {
     this.getGenres();
@@ -31,7 +32,6 @@ export class FilterPage implements OnInit {
     await this.api.getPopularMovie()
       .subscribe(res => {
         this.movies = res.results;
-        console.log(res)
         loading.dismiss();
       }, err => {
         console.log(err);
@@ -47,7 +47,6 @@ export class FilterPage implements OnInit {
     await loading.present();
     await this.api.getGenres().subscribe(data => {
         this.genres = data.genres;
-        console.log(data)
         loading.dismiss();
       }, err => {
         console.log(err);
@@ -82,6 +81,15 @@ export class FilterPage implements OnInit {
         this.openGenres = false;
       break;
     }
+  }
+
+  moviesByGenre(genre){
+    let navigationExtras: NavigationExtras = {
+      state: {
+        'genre': genre
+      }
+    }
+    this.router.navigate(['movies-by-genre'], navigationExtras);
   }
 
 }
