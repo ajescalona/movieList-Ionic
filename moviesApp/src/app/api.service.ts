@@ -52,8 +52,8 @@ export class ApiService {
     );
   }
 
-  getMoviesByGenre(genreId){
-    const url = 'https://api.themoviedb.org/3/discover/movie?api_key='+this.apiKey+'&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres='+genreId
+  getMoviesByGenre(genreId, page){
+    const url = 'https://api.themoviedb.org/3/discover/movie?api_key='+this.apiKey+'&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page='+page+'&with_genres='+genreId
 
     return this.http.get<any>(url).pipe(
       tap(_ => console.log(`get movies by genres`))
