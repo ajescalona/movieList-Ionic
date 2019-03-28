@@ -8,6 +8,7 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-searchbar placeholder= "Search {{passedId.name}} movies" color="light" autocomplete="on" (ionInput)="searchGenresMovies($event)"></ion-searchbar>
   <div *ngFor = "let movie of movies">
     <ion-card class="home-card" >
         <img src = "http://image.tmdb.org/t/p/w780{{movie.backdrop_path}}">

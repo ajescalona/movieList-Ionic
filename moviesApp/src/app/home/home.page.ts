@@ -59,7 +59,6 @@ export class HomePage implements OnInit {
       });
     }
     this.results = [];
-    console.log(ev.target.value);
     this.input = ev.target.value;
   }
 
