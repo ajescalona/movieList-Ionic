@@ -14,7 +14,8 @@ app.use(express.json());
 app.use(cors({origin: 'http://localhost:8100'}));
 
 //ROUTES
-//app.use('/api/employees', require('./routes/employee.routes'))
+app.use('/tabs/home', require('./routes/home.routes'))
+app.use('/filter', require('./routes/filter.routes'))
 
 // START SERVER
 app.listen(app.get('port'), () => {
