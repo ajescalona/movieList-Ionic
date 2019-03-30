@@ -16,8 +16,11 @@ export class ModalPage implements OnInit {
 
   ngOnInit() {
     this.movie_id = this.navParams.get('movie_id');
+    var body = {
+      'id': this.movie_id
+    }
 
-    this.api.getMovie(this.movie_id).subscribe(data => {
+    this.api.getMovie(body).subscribe(data => {
       this.movie = data;
     })
   }

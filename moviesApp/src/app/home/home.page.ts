@@ -15,6 +15,7 @@ export class HomePage implements OnInit {
   results:any[]=[];
   movies:any[]=[];
   input:string;
+  val: any;
 
   constructor(public api: ApiService, public loadingController: LoadingController,
     public router: Router, public route: ActivatedRoute, private modalCtrl: ModalController, private nav: NavController) { }
@@ -50,11 +51,15 @@ export class HomePage implements OnInit {
   }
   
   searchMovies(ev: any) {
-    let val = ev.target.value;
+    this.val = ev.target.value;
 
-    if(val != [])
-    {
-      this.api.searchMovies(val).subscribe(data=>{
+    if(this.val != [])
+    { 
+      var body = {
+        'searchStr': this.val
+      }
+      
+      this.api.searchMovies(body).subscribe(data=>{
         this.results = data.results;
       });
     }

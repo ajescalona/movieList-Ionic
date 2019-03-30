@@ -29,14 +29,16 @@ export class MoviesByGenrePage implements OnInit {
 
   getMoviesByGenres(event?){
 
-    this.api.getMoviesByGenre(this.passedId.id, this.page)
+    var body = {
+      'page': this.page,
+      'genreId': this.passedId
+    }
+
+    this.api.getMoviesByGenre(body)
     .subscribe(data => {
       if(this.movies.length === 0)
       {
         this.movies = data.results;
-        console.log("entre primera pagina")
-        console.log(this.movies)
-        console.log(this.movies.length)
       }
       else{
         for (let i = 0; i < 20; i++) { 
