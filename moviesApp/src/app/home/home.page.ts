@@ -14,6 +14,7 @@ import { ModalPage } from '../modal/modal.page';
 export class HomePage implements OnInit {
   results:any[]=[];
   movies:any[]=[];
+  movie:any[]=[];
   input:string;
   val: any;
 
@@ -40,11 +41,22 @@ export class HomePage implements OnInit {
       });
   }
 
-  async movieDetails(id: any){
+  movieDetails(movieId: any){
+    var body = {
+      'id': movieId
+    }
+
+    this.api.getMovie(body).subscribe(data => {
+      this.movie = data;
+      this.movieModal(this.movie);
+    })
+  }
+
+  async movieModal(data: any){
     const modal = await this.modalCtrl.create({
       component: ModalPage,
       componentProps: {
-        movie_id: id
+        movie: data
       }
     });
     return await modal.present();

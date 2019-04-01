@@ -9,20 +9,14 @@ import { ApiService } from '../api.service';
 })
 export class ModalPage implements OnInit {
 
-  movie_id: null;
+  data: null;
   movie:any[]=[];
 
   constructor(private navParams: NavParams, private modalCtrl: ModalController, private api: ApiService) { }
 
   ngOnInit() {
-    this.movie_id = this.navParams.get('movie_id');
-    var body = {
-      'id': this.movie_id
-    }
-
-    this.api.getMovie(body).subscribe(data => {
-      this.movie = data;
-    })
+    this.data = this.navParams.get('movie');
+    this.movie = this.data
   }
 
   closeModal(){
