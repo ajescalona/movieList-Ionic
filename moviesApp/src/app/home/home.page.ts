@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingController, NavController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ApiService } from '../api.service';
+import { ApiService } from '../services/api.service';
 import { ModalController } from '@ionic/angular';
 import { ModalPage } from '../modal/modal.page';
 
@@ -15,8 +15,11 @@ export class HomePage implements OnInit {
   results:any[]=[];
   movies:any[]=[];
   movie:any[]=[];
+  favoriteMovie:any[]=[];
   input:string;
   val: any;
+  like: any = [];
+  unlike: any = [];
 
   constructor(public api: ApiService, public loadingController: LoadingController,
     public router: Router, public route: ActivatedRoute, private modalCtrl: ModalController, private nav: NavController) { }
@@ -82,4 +85,44 @@ export class HomePage implements OnInit {
   goToFilter(){
     this.nav.navigateForward('/filter');
   }
+
+
+  toggleLikeState(movie){  
+
+    if(this.favoriteMovie == movie){
+
+      /* this.api.deleteFavoriteMovie(movie.id).subscribe( data =>{
+        console.log(data)
+      }) */
+      console.log('quito movie');
+      this.like[movie.id] = false;
+      this.unlike[movie.id] = true;
+    }
+    else{
+
+      let body = {
+        'backdrop_path': movie.backdrop_path,
+        'id': movie.id,
+        'original_language': movie.original_language,
+        'title': movie.title,
+       ' overview': movie.overview,
+        'poster_path': movie.poster_path,
+        'release_date': movie.release_date,
+        'vote_average': movie.vote_average
+      }
+
+      /* this.api.addFavoriteMovie(body).subscribe( data => {
+        console.log(data)
+      }) */
+      console.log('agrego movie');
+      this.like[movie.id] = !this.like[movie.id];
+      this.unlike[movie.id] = !this.unlike[movie.id];
+    }
+
+    this.favoriteMovie = movie;
+    console.log(this.favoriteMovie);
+    
+  }  
+
+
 }

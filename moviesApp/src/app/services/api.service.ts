@@ -37,6 +37,12 @@ export class ApiService {
   getMoviesByGenre(genre: any): Observable<any>{
     return this.http.post(this.URL_API + '/filter/movieByGenres', genre)
   }
+
+  addFavoriteMovie(movie: any ): Observable<any>{
+    return this.http.post(this.URL_API + '/tabs/home/favoriteMovie', movie)
+  }
   
-  
+  deleteFavoriteMovie(id: any ): Observable<any>{
+    return this.http.delete(this.URL_API + '/tabs/home' +`/${id}` )
+  }
 }

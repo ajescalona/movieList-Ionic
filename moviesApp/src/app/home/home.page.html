@@ -36,6 +36,8 @@
       <ion-col size="6" *ngFor="let m of movies">
         <ion-card class="home-card">
             <img src="http://image.tmdb.org/t/p/w500{{m.poster_path}}" (click)="movieDetails(m.id)"/>
+            <ion-icon (click)="toggleLikeState(m)" tappable size="large" name="heart"
+            [ngClass]="{'unliked': unlike[m.id], 'liked': like[m.id]}"></ion-icon>
         </ion-card>
       </ion-col>
     </ion-row>

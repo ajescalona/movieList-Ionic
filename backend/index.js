@@ -14,8 +14,9 @@ app.use(express.json());
 app.use(cors({origin: 'http://localhost:8100'}));
 
 //ROUTES
-app.use('/tabs/home', require('./routes/home.routes'))
-app.use('/filter', require('./routes/filter.routes'))
+app.use('/tabs/home', require('./routes/home.routes'));
+app.use('/filter', require('./routes/filter.routes'));
+app.use('/tabs/home', require('./routes/favoriteMovies.routes'))
 
 // START SERVER
 app.listen(app.get('port'), () => {
